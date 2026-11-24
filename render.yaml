@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: signconnect-ai
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FEEDBACK_RECIPIENT
+        value: navyatatakuntla99@gmail.com
+      - key: MIN_CONFIDENCE_THRESHOLD
+        value: "0.25"
+      - key: STABILITY_WINDOW
+        value: "2"
